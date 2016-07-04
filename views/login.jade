@@ -15,8 +15,13 @@ block content
                     a.icon-twitter.login-social.center.color-twitter(href='#')
                   .col.s4
                     a.icon-gplus-circled.login-social.center.color-googleplus(href='')
-              form.col.s10.offset-s1(action='', method='post')
+              form.col.s10.offset-s1(action='/session', method='post')
                 p.center.p-top-space(style='border-top: 1px solid #E2E2E2;') O con una cuenta
+                - if (message.length > 0)
+                  .row
+                    .col.s12
+                      .card-panel.bg-danger
+                        span.white-text=message
                 .row
                   .input-field.col.s12
                     i.material-icons.prefix account_circle

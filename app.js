@@ -28,11 +28,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var routes = require('./routes/index')(passport);
-var users = require('./routes/users');
+var users = require('./routes/users')(passport);
+
 app.use('/', routes);
 app.use('/app',function (req,res,next) {
-  if(!req.user){
-    res.redirect('/login');
+  if(!req.isAuthenticated()){
+    return res.redirect('/login');
   }
   next();
 });

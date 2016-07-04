@@ -27,13 +27,22 @@ passport.use('registerUser', new LocalStrategy({
 
 passport.use('loginStrategy', new LocalStrategy(
     function(username, password, done) {
-        User.findOne({
-            username: username
-        }, function(err, doc) {
+        User.findOne({ email: username }, function(err, doc) {
             if (err) {
                 return done(err);
             }
-            return done(null, doc);
+            if(!doc){
+                return done(null, false, { message: 'No existe usuario'});
+            }
+            doc.comparePassword(password, doc.password, function (err, isMatch) {
+              if(err){
+                return done(err);
+              }
+              if(!isMatch){
+                return done(null, false, { message: 'Contraseña incorrecta'});
+              }
+              return done(null, doc);
+            });
         });
     }
 ));
