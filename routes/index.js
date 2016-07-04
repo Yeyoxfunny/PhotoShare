@@ -1,43 +1,30 @@
-var express = require('express');
-var router = express.Router();
 
-var UserModel = require('../models/User');
+module.exports = function (passport) {
+  var express = require('express');
+  var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res) {
-  res.render('index', { title: 'PhotoShare' });
-});
+  var _ = require('lodash');
+  var UserModel = require('../models/User');
 
-router.get('/login',function (req, res) {
-  res.render('login', { title: 'Login' });
-});
-
-router.get('/signin',function (req, res) {
-  UserModel.find(function(err, doc) {
-    res.render('signin', { title: 'Sign In' });
-  });
-});
-
-router.post('/users',function (req, res) {
-  var user = new UserModel({
-    name: req.body.name,
-    lastname: req.body.lastname,
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password,
-    passwordConfirmation: req.body.passwordConfirmation,
-    birthdate: req.body.birthdate,
-    gender: req.body.gender
+  /* GET home page. */
+  router.get('/', function(req, res) {
+    res.render('index', { title: 'PhotoShare' });
   });
 
-  user.save(function (err, doc) {
-    if(err){
-      req.flash('info',String(err));
-      return res.redirect('/signin');
-    }
-    res.redirect('/signin');
+  router.get('/login',function (req, res) {
+    res.render('login', { title: 'Login' });
   });
-});
 
+  router.get('/signin',function (req, res) {
+    res.render('signin', { title: 'Sign In', message: req.flash('error') });
+  });
 
-module.exports = router;
+  router.post('/users',passport.authenticate('registerUser', {
+      failureRedirect: '/signin',
+      failureFlash: true,
+      successRedirect: '/app'
+    })
+  );
+
+  return router;
+}

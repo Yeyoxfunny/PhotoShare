@@ -84,7 +84,9 @@ body{
 .color-googleplus{
 	color: #dd4b39;
 }
-
+.bg-danger{
+	background-color: #d9534f;
+}
 /*------------------------------------*\
     $FONTASTIC_STYLES
 \*------------------------------------*/

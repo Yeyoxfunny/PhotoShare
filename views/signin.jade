@@ -7,11 +7,11 @@ block content
               header.col.s12.teal
                 h4.center.white-text.main(style="font-family: 'Arial Black'") #{title}
               form.col.s12.m10.offset-m1(action='/users' method='post')
-                - if (messages.info)
+                - if (message.length > 0)
                   .row
                     .col.s12
-                      .card-panel.red
-                        span.white-text=messages.info
+                      .card-panel.bg-danger
+                        span.white-text=message
                 .row.m-medium-top-space
                   .input-field.col.s12.m6
                     input#name.validate(type='text' name='name' placeholder='Nombres' required)
@@ -46,7 +46,7 @@ block content
                         .col.s12
                           input#genderF(type='radio' name='gender' value='F')
                           label(for='genderF') Femenino
-                  button.#btnSend.btn.waves-effect.waves-light.col.s10.offset-s1.m-top-space(type='submit', name='action') Enviar
+                  button.btn.waves-effect.waves-light.col.s10.offset-s1.m-top-space(type='submit', name='action') Enviar
             p.center
               | ¿Ya tienes cuenta? 
               a(href='/login') Iniciar Sesión
