@@ -1,0 +1,112 @@
+/*------------------------------------*\
+    $FONT-FACE
+\*------------------------------------*/
+@import url("./fontastic.css");
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Lato:400italic");
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+body{
+	background-color: #E8ECED;
+}
+
+/*------------------------------------*\
+    $GENERAL_STYLES
+\*------------------------------------*/
+.main-title{
+	font-family: 'Pacifico',cursive;
+}
+.main-subtitle{
+	font-size: 1.5em;
+}
+
+/*------------------------------------*\
+    $MARGIN_TOP_SPACES
+\*------------------------------------*/
+.m-top-space{
+	margin-top: 1em;
+}
+.m-medium-top-space{
+	margin-top: 3.5em;
+}
+.m-big-top-space{
+	margin-top: 7em;
+}
+@media screen and (max-width: 600px){
+	.m-big-top-space{
+		margin-top: 2em;
+	}
+}
+
+/*------------------------------------*\
+    $MARGIN_RIGHT_SPACES
+\*------------------------------------*/
+.m-right-space{
+	margin-right: 1em;
+}
+/*------------------------------------*\
+    $MARGIN_BOTTON_SPACES
+\*------------------------------------*/
+.m-medium-botton-space{
+	margin-bottom: 3.5rem;
+}
+.m-big-bottom-space{
+	margin-bottom: 7em;
+}
+
+/*------------------------------------*\
+    $PADDING_TOP_SPACES
+\*------------------------------------*/
+.p-top-space{
+	padding-top: 1em;
+}
+
+/*------------------------------------*\
+    $HELPER_CLASS
+\*------------------------------------*/
+.center-img{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*------------------------------------*\
+    $COLORS_TEXT
+\*------------------------------------*/
+.color-facebook{
+	color: #3b5998;
+}
+.color-twitter{
+	color: #55ACEE;
+}
+.color-googleplus{
+	color: #dd4b39;
+}
+
+/*------------------------------------*\
+    $FONTASTIC_STYLES
+\*------------------------------------*/
+.login-social{
+	font-size: 3rem;
+	display: block;
+}
+
+
+.nav-item{
+	font-size: 1.3rem;
+	color: #2980B9;
+}
+.nav-item:hover{
+	color: #3498DB;
+}
+.color-3498DB{
+	color: #3498DB;
+}
+.login-form{
+	border-radius: 5px;
+}
+.font-lato{
+	font-family: 'Lato',sans-serif;
+}
