@@ -1,0 +1,22 @@
+.navbar-fixed
+  nav.bg-bluewood
+    .nav-wrapper
+      a.brand-logo.main-title.m-left-space(href='/') PhotoShare
+      a.button-collapse(href='#', data-activates='mobile-demo')
+        i.material-icons menu
+      ul.right.hide-on-med-and-down
+        li: a(href='/app') Imágenes
+        li
+          a.dropdown-button(href='#!', data-activates='dropdown1') #{user.username}
+            i.material-icons.right arrow_drop_down
+          ul#dropdown1.dropdown-content
+            li: a(href='#') Perfil
+            li: a(href='/app/logout') Salir
+      ul#mobile-demo.side-nav
+        li: a(href='/app') Imágenes
+        li
+          a.dropdown-button(href='#!', data-activates='dropdown2') #{user.username}
+            i.material-icons.right arrow_drop_down
+          ul#dropdown2.dropdown-content
+            li: a(href='#') Perfil
+            li: a(href='/app/logout') Salir

@@ -1,16 +1,11 @@
 extends ../layout
 block content
-  .navbar-fixed
-    nav.bg-menu-red
-      .nav-wrapper
-        a.brand-logo(href='#!').main-title.m-left-space PhotoShare
-        ul.right.hide-on-med-and-down
-          li
-            a(href='#') Imagenes
-          li
-            a.dropdown-button(href='#' data-activates="dropdown1") #{user.username}
-              i.material-icons.right arrow_drop_down
-            ul#dropdown1.dropdown-content
-              li: a(href='#') Perfil
-              li: a(href='/app/logout') Salir
-              
+    include ./layoutNavbar
+    .container
+      h1 Hola mundo
+      div.fixed-action-btn(style="bottom: 45px; right: 24px;")
+        a.btn-floating.btn-large.waves-effect.waves-light.red(href='/app/new')
+          i.material-icons publish
+block scripts
+  script
+    $(".button-collapse").sideNav();

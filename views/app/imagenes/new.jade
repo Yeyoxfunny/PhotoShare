@@ -1,0 +1,23 @@
+extends ../../layout.jade
+block content
+    include ../layoutNavbar
+    .container.m-medium-top-space
+      .row
+        .col.m10.offset-m1.z-depth-1.white.login-form
+          .row
+            header.col.s12.bg-bluewood
+              h4.center.white-text.main(style="font-family: 'Arial Black'") Insertar Imagen
+            form.col.s12.m10.offset-m1(action='/users' method='post')
+              .row.m-top-space
+                .col.s12.input-field
+                  input#title.validate(type="text")
+                  label(for="first_name") Título
+                  .file-field.input-field
+                    .btn
+                      span File
+                      input(type='file')
+                    .file-path-wrapper
+                      input.file-path.validate(type='text')
+block scripts
+  script
+    $(".button-collapse").sideNav();
