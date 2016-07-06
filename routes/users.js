@@ -30,7 +30,6 @@ module.exports = function (passport) {
         if(err){
           return next(err);
         }
-        console.log(imagenes);
         res.render('app/home',{ title: 'Home', user: req.user, images: imagenes});
     });
   });
@@ -71,11 +70,24 @@ module.exports = function (passport) {
   });
 
   router.route('/imagenes/:id')
-    .get(function (req, res) {
-
+    .get(function (req, res, next) {
+      ImageModel.findById(req.params.id, function (err, doc) {
+        if(err){
+          return next(err);
+        }
+        return res.render('app/imagenes/edit', {title: 'Edit', user: req.user, imagen: doc});
+      });
     })
     .put(function (req, res) {
-
+      ImageModel.findOneAndUpdate({_id: req.params.id},
+        { $set: { title: req.body.title, description: req.body.description} },
+        function (err) {
+          if(err){
+            return next(err);
+          }
+          return res.redirect('/app');
+        }
+      );
     })
     .delete(function (req, res) {
 

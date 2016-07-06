@@ -1,0 +1,26 @@
+extends ../../layout.jade
+block content
+    include ../layoutNavbar
+    .container.m-medium-top-space
+      .row
+        .col.m10.offset-m1.z-depth-1.white.login-form
+          .row
+            header.col.s12.bg-bluewood
+              h4.center.white-text.main(style="font-family: 'Arial Black'") Editar Imagen
+            form.col.s12.m10.offset-m1(action='/app/imagenes/#{imagen._id}?_method=PUT' method='post')
+              .row.m-top-space
+                .col.s12.input-field
+                  i.material-icons.prefix mode_edit
+                  input#title.validate(type="text" name='title', value='#{imagen.title}')
+                  label(for="title") Título
+                .col.s12.input-field
+                  i.material-icons.prefix mode_edit
+                  textarea#description.materialize-textarea(name='description') #{imagen.description}
+                  label(for="description") Descripción
+                .col.s12.m-top-space.image-preview-file
+                  img#imgPreview.responsive-img(src='#{imagen.urlImage}')
+                button.btn.waves-effect.waves-light.col.s3.offset-s9.m-top-space(type="submit" name="action") Actualizar
+                  i.material-icons.right send
+block scripts
+  script
+    $(".button-collapse").sideNav();
