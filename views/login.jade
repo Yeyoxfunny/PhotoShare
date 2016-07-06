@@ -4,17 +4,17 @@ block content
         .row
           .col.m6.offset-m3.z-depth-1.white.login-form
             .row
-              header.col.s12.teal
+              header.col.s12.bg-bluewood
                 h4.center.white-text.main(style="font-family: 'Arial Black'") #{title}
               section.col.s12.m8.offset-m2(style='padding: 10px;')
                 p.center Ingresar con redes sociales
                 .row
                   .col.s4
-                    a.icon-facebook-alt.login-social.center.color-facebook(href='#')
+                    a.icon-facebook-alt.login-social.center.color-facebook.login-social__hover(href='#')
                   .col.s4
-                    a.icon-twitter.login-social.center.color-twitter(href='#')
+                    a.icon-twitter.login-social.center.color-twitter.login-social__hover(href='#')
                   .col.s4
-                    a.icon-gplus-circled.login-social.center.color-googleplus(href='')
+                    a.icon-gplus-circled.login-social.center.color-googleplus.login-social__hover(href='#')
               form.col.s10.offset-s1(action='/session', method='post')
                 p.center.p-top-space(style='border-top: 1px solid #E2E2E2;') O con una cuenta
                 - if (message.length > 0)

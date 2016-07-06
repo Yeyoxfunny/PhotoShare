@@ -2,8 +2,33 @@ extends ../layout
 block content
     include ./layoutNavbar
     .container
-      h1 Hola mundo
-      div.fixed-action-btn(style="bottom: 45px; right: 24px;")
+      .row.m-top-space
+        -var clonImages = images.slice(0)
+        -while(clonImages.length > 0)
+          -var chunk = clonImages.splice(0,3);
+          .row
+          each valor in chunk
+              .col.m4.s12
+                .card
+                  .card-image.waves-effect.waves-block.waves-light
+                    img.activator(src='#{valor.urlImage}' heigth='300')
+                  .card-content
+                    span.card-title.activator.grey-text.text-darken-4 #{valor.title}
+                      i.material-icons.right more_vert
+                    .row
+                      .col.s12.view-image__options
+                        a(href='#') #[i.material-icons.small mode_edit]
+                        a.icon-facebook-alt.color-facebook.view-image__social(href='#')
+                        a.icon-twitter.color-twitter.view-image__social(href='#')
+                        a.icon-gplus-circled.color-googleplus.view-image__social(href='#')
+                        a.icon-instagrem.color-instagram.view-image__social(href='#')
+                  .card-reveal
+                    span.card-title.grey-text.text-darken-4 #{valor.title}
+                      i.material-icons.right close
+                    p #{valor.description}
+
+                
+      .fixed-action-btn(style="bottom: 45px; right: 24px;")
         a.btn-floating.btn-large.waves-effect.waves-light.red(href='/app/new')
           i.material-icons publish
 block scripts
